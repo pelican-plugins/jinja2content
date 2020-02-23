@@ -56,6 +56,11 @@ Werkzeug = "^0.15.5"
 [tool.poetry.extras]
 markdown = ["markdown"]
 
+[tool.autopub]
+project-name = "Jinja2Content"
+git-username = "botpub"
+git-email = "botpub@autopub.rocks"
+
 [tool.isort]
 # Maintain compatibility with Black
 combine_as_imports = true

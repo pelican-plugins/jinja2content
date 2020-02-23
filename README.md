@@ -1,5 +1,7 @@
 # Jinja2Content Plugin for Pelican
 
+[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/jinja2content/build)](https://github.com/pelican-plugins/jinja2content/actions) [![PyPI Version](https://img.shields.io/pypi/v/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
+
 This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.
 
 In this approach, your content is *first* rendered by the Jinja template engine. The result is then passed to the normal Pelican reader as usual. There are two consequences for usage. First, this means the Pelican context and Jinja variables [usually visible](http://docs.getpelican.com/en/stable/themes.html#templates-and-variables) to your article or page template are _not_ available at rendering time. Second, it means that if any of your input content could be parsed as Jinja directives, they will be rendered as such. This is unlikely to happen accidentally, but it’s good to be aware of.
