@@ -1,1 +1,1 @@
-from .jinja2content import *
+from .jinja2content import *  # NOQA
