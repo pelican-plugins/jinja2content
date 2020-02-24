@@ -27,7 +27,7 @@ def tests(c):
 @task
 def black(c, check=False, diff=False):
     """Run Black auto-formatter, optionally with --check or --diff"""
-    diff_flag, check_flag = "", ""
+    check_flag, diff_flag = "", ""
     if check:
         check_flag = "--check"
     if diff:
@@ -36,11 +36,15 @@ def black(c, check=False, diff=False):
 
 
 @task
-def isort(c, check=False):
-    check_flag = ""
+def isort(c, check=False, diff=False):
+    check_flag, diff_flag = "", ""
     if check:
         check_flag = "-c"
-    c.run(f"{VENV}/bin/isort {check_flag} --recursive {PKG_PATH}/* tasks.py")
+    if diff:
+        diff_flag = "--diff"
+    c.run(
+        f"{VENV}/bin/isort {check_flag} {diff_flag} --recursive {PKG_PATH}/* tasks.py"
+    )
 
 
 @task
