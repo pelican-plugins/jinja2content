@@ -10,6 +10,7 @@ import os
 from tempfile import NamedTemporaryFile
 
 from jinja2 import ChoiceLoader, Environment, FileSystemLoader
+
 from pelican import signals
 from pelican.readers import HTMLReader, MarkdownReader, RstReader
 from pelican.utils import pelican_open
