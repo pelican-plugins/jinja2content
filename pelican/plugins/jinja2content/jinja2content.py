@@ -38,6 +38,12 @@ class JinjaContentMixin:
                 "extensions": self.settings["JINJA_EXTENSIONS"],
             }
         self.env = Environment(loader=ChoiceLoader(loaders), **jinja_environment)
+        if "JINJA_FILTERS" in self.settings:
+            self.env.filters.update(self.settings["JINJA_FILTERS"])
+        if "JINJA_GLOBALS" in self.settings:
+            self.env.globals.update(self.settings["JINJA_GLOBALS"])
+        if "JINJA_TEST" in self.settings:
+            self.env.tests.update(self.settings["JINJA_TESTS"])
 
     def read(self, source_path):
         with pelican_open(source_path) as text:
