@@ -4,7 +4,7 @@
 
 This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.
 
-In this approach, your content is *first* rendered by the Jinja template engine. The result is then passed to the normal Pelican reader as usual. There are two consequences for usage. First, this means the Pelican context and Jinja variables [usually visible](http://docs.getpelican.com/en/stable/themes.html#templates-and-variables) to your article or page template are _not_ available at rendering time. Second, it means that if any of your input content could be parsed as Jinja directives, they will be rendered as such. This is unlikely to happen accidentally, but it’s good to be aware of.
+In this approach, your content is *first* rendered by the Jinja template engine. The result is then passed to the normal Pelican reader as usual. There are two consequences for usage. First, this means the Pelican context and Jinja variables [usually visible](https://docs.getpelican.com/en/stable/themes.html#templates-and-variables) to your article or page template are _not_ available at rendering time. Second, it means that if any of your input content could be parsed as Jinja directives, they will be rendered as such. This is unlikely to happen accidentally, but it’s good to be aware of.
 
 All input that needs Pelican variables such as `article`, `category`, etc., should be put inside your *theme’s* templating. As such, the main use of this plugin is to automatically generate parts of your articles or pages.
 
@@ -93,7 +93,7 @@ Acknowledgements
 - Original implementation by @joachimneu and re-worked by @Leonardo.
 - Updated to support reST and HTML input by @micahjsmith.
 - Converted to new plugin format by @justinmayer.
-- Replaces [pelican-jinj2content](https://github.com/joachimneu/pelican-jinja2content/tree/f73ef9b1ef1ee1f56c80757b4190b53f8cd607d1), which had become unmaintained.
+- Replaces [pelican-jinja2content](https://github.com/joachimneu/pelican-jinja2content/tree/f73ef9b1ef1ee1f56c80757b4190b53f8cd607d1), which had become unmaintained.
 
 
 [existing issues]: https://github.com/pelican-plugins/jinja2content/issues
