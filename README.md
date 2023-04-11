@@ -1,6 +1,6 @@
 # Jinja2Content Plugin for Pelican
 
-[![Build Status](https://img.shields.io/github/workflow/status/pelican-plugins/jinja2content/build)](https://github.com/pelican-plugins/jinja2content/actions) [![PyPI Version](https://img.shields.io/pypi/v/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/jinja2content/main.yml?branch=main)](https://github.com/pelican-plugins/jinja2content/actions) [![PyPI Version](https://img.shields.io/pypi/v/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
 
 This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.
 
