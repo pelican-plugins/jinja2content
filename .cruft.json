@@ -1,0 +1,28 @@
+{
+  "template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+  "commit": "21ae5f20cc2dceebd39f838458ce60f77f9e6743",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "Jinja2Content",
+      "repo_name": "jinja2content",
+      "package_name": "jinja2content",
+      "distribution_name": "pelican-jinja2content",
+      "version": "1.0.1",
+      "description": "Pelican plugin for using Jinja template code within post content",
+      "authors": "{name = \"Justin Mayer\", email = \"entroP@gmail.com\"}",
+      "keywords": "\"pelican\", \"plugin\", \"jinja\", \"jinja2\"",
+      "readme": "README.md",
+      "contributing": "CONTRIBUTING.md",
+      "license": "GNU Affero General Public License v3|AGPL-3.0",
+      "repo_url": "https://github.com/pelican-plugins/jinja2content",
+      "dev_status": "5 - Production/Stable",
+      "tests_exist": false,
+      "python_version": "~=3.9",
+      "pelican_version": ">=4.5",
+      "_template": "https://github.com/getpelican/cookiecutter-pelican-plugin",
+      "_commit": "21ae5f20cc2dceebd39f838458ce60f77f9e6743"
+    }
+  },
+  "directory": null
+}

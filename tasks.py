@@ -21,6 +21,7 @@ VENV_BIN = Path(VENV) / Path(BIN_DIR)
 TOOLS = ("cruft", "pdm", "pre-commit")
 PDM = which("pdm") if which("pdm") else (VENV_BIN / "pdm")
 CMD_PREFIX = f"{VENV_BIN}/" if ACTIVE_VENV else f"{PDM} run "
+CRUFT = which("cruft") if which("cruft") else f"{CMD_PREFIX}cruft"
 PRECOMMIT = which("pre-commit") if which("pre-commit") else f"{CMD_PREFIX}pre-commit"
 PTY = os.name != "nt"
 
@@ -79,6 +80,17 @@ def precommit(c):
     """Install pre-commit hooks to .git/hooks/pre-commit."""
     logger.info("** Installing pre-commit hooks **")
     c.run(f"{PRECOMMIT} install")
+
+
+@task
+def update(c, check=False):
+    """Apply upstream plugin template changes to this project."""
+    if check:
+        logger.info("** Checking for upstream template changes **")
+        c.run(f"{CRUFT} check", pty=PTY)
+    else:
+        logger.info("** Updating project from upstream template **")
+        c.run(f"{CRUFT} update", pty=PTY)
 
 
 @task
