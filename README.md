@@ -1,6 +1,9 @@
 # Jinja2Content Plugin for Pelican
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/jinja2content/main.yml?branch=main)](https://github.com/pelican-plugins/jinja2content/actions) [![PyPI Version](https://img.shields.io/pypi/v/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pelican-plugins/jinja2content/main.yml?branch=main)](https://github.com/pelican-plugins/jinja2content/actions)
+[![PyPI Version](https://img.shields.io/pypi/v/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
+[![Downloads](https://img.shields.io/pypi/dm/pelican-jinja2content)](https://pypi.org/project/pelican-jinja2content/)
+![License](https://img.shields.io/pypi/l/pelican-jinja2content?color=blue)
 
 This plugin allows the use of Jinja2 directives inside your Pelican articles and pages.
 
@@ -64,7 +67,9 @@ Installation
 
 This plugin can be installed via:
 
-    pip install pelican-jinja2content
+    python -m pip install pelican-jinja2content
+
+As long as you have not explicitly added a `PLUGINS` setting to your Pelican settings file, then the newly-installed plugin should be automatically detected and enabled. Otherwise, you must add `jinja2content` to your existing `PLUGINS` list. For more information, please see the [How to Use Plugins](https://docs.getpelican.com/en/latest/plugins.html#how-to-use-plugins) documentation.
 
 
 Configuration
@@ -98,3 +103,8 @@ Acknowledgements
 
 [existing issues]: https://github.com/pelican-plugins/jinja2content/issues
 [Contributing to Pelican]: https://docs.getpelican.com/en/latest/contribute.html
+
+License
+-------
+
+This project is licensed under the AGPL-3.0 license.
