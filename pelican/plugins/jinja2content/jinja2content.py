@@ -1,10 +1,4 @@
-"""
-jinja2content.py
-----------------
-
-Pelican plugin that processes Markdown files as jinja templates.
-
-"""
+"""jinja2content: Pelican plugin that processes Markdown files as Jinja templates."""
 
 import os
 from tempfile import NamedTemporaryFile
@@ -70,10 +64,12 @@ class JinjaHTMLReader(JinjaContentMixin, HTMLReader):
 
 
 def add_reader(readers):
+    """Add Jinja readers."""
     for Reader in [JinjaMarkdownReader, JinjaRstReader, JinjaHTMLReader]:
         for ext in Reader.file_extensions:
             readers.reader_classes[ext] = Reader
 
 
 def register():
+    """Register the plugin."""
     signals.readers_init.connect(add_reader)
