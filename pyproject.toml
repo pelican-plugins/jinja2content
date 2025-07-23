@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-requires-python = "~=3.9"
+requires-python = ">=3.9"
 dependencies = [
     "pelican>=4.5",
 ]
@@ -38,18 +38,19 @@ dependencies = [
 markdown = ["markdown>=3.4"]
 
 [dependency-groups]
-lint = [
+dev = [
     "invoke>=2.2",
     "ruff>=0.12.0,<1.0.0",
 ]
 
-[tool.pdm.build]
-source-includes = [
+[tool.uv.build-backend]
+source-include = [
     "CHANGELOG.md",
     "CONTRIBUTING.md",
 ]
-includes = ["pelican/"]
-excludes = ["**/.DS_Store", "**/test_data/**", "tasks.py"]
+module-name = "pelican.plugins.jinja2content"
+module-root = ""
+source-exclude = ["**/.DS_Store", "**/test_data"]
 
 [tool.autopub]
 project-name = "Jinja2Content"
@@ -101,5 +102,5 @@ force-sort-within-sections = true
 known-first-party = ["pelican"]
 
 [build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+requires = ["uv_build>=0.8.2"]
+build-backend = "uv_build"

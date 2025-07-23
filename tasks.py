@@ -18,9 +18,9 @@ VENV = str(VENV_PATH.expanduser())
 BIN_DIR = "bin" if os.name != "nt" else "Scripts"
 VENV_BIN = Path(VENV) / Path(BIN_DIR)
 
-TOOLS = ("cruft", "pdm", "pre-commit")
-PDM = which("pdm") if which("pdm") else (VENV_BIN / "pdm")
-CMD_PREFIX = f"{VENV_BIN}/" if ACTIVE_VENV else f"{PDM} run "
+TOOLS = ("cruft", "pre-commit")
+UV = which("uv")
+CMD_PREFIX = f"{VENV_BIN}/" if ACTIVE_VENV else f"{UV} run "
 CRUFT = which("cruft") if which("cruft") else f"{CMD_PREFIX}cruft"
 PRECOMMIT = which("pre-commit") if which("pre-commit") else f"{CMD_PREFIX}pre-commit"
 PTY = os.name != "nt"
@@ -72,7 +72,7 @@ def tools(c):
     for tool in TOOLS:
         if not which(tool):
             logger.info(f"** Installing {tool} **")
-            c.run(f"{CMD_PREFIX}pip install {tool}")
+            c.run(f"{UV} pip install {tool}")
 
 
 @task
@@ -96,20 +96,17 @@ def update(c, check=False):
 @task
 def setup(c):
     """Set up the development environment."""
-    if which("pdm") or ACTIVE_VENV:
+    if UV:
+        c.run(f"{UV} sync", pty=PTY)
         tools(c)
-        c.run(f"{CMD_PREFIX}python -m pip install --upgrade pip", pty=PTY)
-        c.run(f"{PDM} update --dev", pty=PTY)
         precommit(c)
         logger.info("\nDevelopment environment should now be set up and ready!\n")
     else:
         error_message = """
-            PDM is not installed, and there is no active virtual environment available.
-            You can either manually create and activate a virtual environment, or you can
-            install PDM via:
+            uv is not installed. You can install uv via:
 
-            curl -sSL https://raw.githubusercontent.com/pdm-project/pdm/main/install-pdm.py | python3 -
+            curl -LsSf https://astral.sh/uv/install.sh | sh
 
-            Once you have taken one of the above two steps, run `invoke setup` again.
-            """  # noqa: E501
+            Once you have installed uv, set up project via `uvx invoke setup`.
+            """
         raise SystemExit(cleandoc(error_message))
