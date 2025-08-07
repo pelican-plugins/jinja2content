@@ -23,16 +23,14 @@ jobs:
         with:
           retry: true
 
-      - name: Set up Python & PDM
-        uses: pdm-project/setup-pdm@v4
-        with:
-          python-version: "3.10"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
 
       - name: Install dependencies
-        run: pdm install
+        run: uv sync
 
       - name: Run linters
-        run: pdm run invoke lint --diff
+        run: uv run invoke lint --diff
 
   deploy:
     name: Deploy
